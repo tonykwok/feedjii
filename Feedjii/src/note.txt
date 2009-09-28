@@ -1,0 +1,25 @@
+Possible command line arguments are:
+
+
+-Dproxy=proxyaddress:proxyport      Example: -Dproxy=company.com:80
+
+-Dresolution=delay                  Example: -Dresolution=5
+
+-Dloglevel=<level>                  Where <level> is one of:
+                                    ALL, CONFIG, FINE, FINER, FINEST, INFO, OFF, SEVERE, WARNING
+                                    Example: -Dloglevel=FINE
+                                    Default is: INFO
+
+-Dtimingsource=<SOURCE>             Where <SOURCE> is one of:
+                                    DEFAULT and CUSTOM
+                                    Example: -Dtimingsource=DEFAULT
+                                    Default is CUSTOM
+
+
+To tune the rendering performance the following variables can be set in the class
+PerformanceTuning:
+
+useNanoSource       = true|false
+resolution          = <milliseconds>
+cacheImages         = true|false
+useCompatibleImages = true|false

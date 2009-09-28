@@ -1,0 +1,295 @@
+﻿Slide 1 – Introduction (Pär & Martin)
+Martin
+Hi everyone and welcome to this presentation, called Swing Rocks, a tribute to filthy rich clients. My name is Martin ... 
+
+Pär
+... and I'm Pär.
+
+Martin
+We both live in southern Sweden, where we work as consultants for a company called Epsilon.
+
+Pär
+We've been working with Swing for a long time and are still big fans.
+We are going to start by showing you some ugly examples from the past and then prove to you that it doesn't have to be this way by showing a really good looking application.
+
+Martin
+When we leave this room in 60 minutes we hope that you will feel inspired and have the knowledge to start writing your own beautiful swing applications.
+
+Now you might wonder why we are still talking about Swing? There have been a number of presentations like this one throughout the years, and there are several good books and a lot of online resources to read.
+
+Is there really anything left to say?
+
+Despite all these presentations, not much has happened. One or two cool applications have been released, but nothing that really made Swing take off. It's still used the same way it was ten years ago, and we are still waiting for the rise of the really cool and beautiful Swing applications. This presentation is our way of promoting Swing, and perhaps most importantly, giving something back to the community.
+
+Pär
+This presentation is based on the book "Filthy Rich Clients" by Chet Haase and Romain Guy and if you’re going to read just one book about cool effects in Swing, then this is the book for you. It’s awesome and that’s why this is “A tribute to Filthy Rich Clients" and to it's authors. 
+
+Martin
+We claim that Swing Rocks, but when you read about it online, you might get the feeling that everybody doesn't agree. Here are a few examples.
+
+
+Slide 4 – How bad can it possibly be? (Martin)
+Ouch! In our previous presentations, we've actually had like ten of these quotes, they're really not that hard to find. But is it really this bad? Where does all this negative criticism come from?
+We did some searching for applications and applets to see what Swing user interfaces typically look like, and this is what we found.
+
+
+Slide 7 – What’s the problem? (Pär)
+Is Swing really as bad as one might think after seeing the screenshots?
+Yes we might have exaggerated a little and the gui we just saw were uglier than the average gui. But the fact still remains: GUIs written in Java are most of the time just gray, dull and ugly.
+Does it have to be this way?
+Is it not possible to write good looking applications using Swing?
+We know that there are two problems.
+First of all, lack of information; Most of us developers don’t have a clue where to start. Most of all developers don’t even know that it’s possible to write good looking applications in Swing and they still believe that pink and green applets are the best graphics Java can manage.  This is the problem that we hope to solve today.
+Second, most developers lack design skill. And if you are one of them, like I am, be sure to team up with someone who is talentet and work together. Working together is much more fun and creative.
+To summarize: we, the developers are the root to all evil and bad looking applications. There’s nothing wrong with Swing.
+
+So how do we go from applications that look and behave like this……. to applications that are stunningly beautiful?
+
+
+Slide 10 – Swing Rocks formula(Martin)
+When we sit down to create a GUI, we focus on four main areas to kind of make it stand out from the rest. We call these the Swing Rocks Formula. (Detta funkar för oss)
+•	We use effects such as gradients, transparency and blur, to give a simple 2D layout a sense of depth. This doesn't just look good, it can also make the GUI more intuitive and easier to use. 
+
+•	Animations can really make your application come alive, and also helps the user to follow what's going on. For example, panels can slide in and out of view, instead of just appearing and disappearing.
+
+•	Information doesn’t have to be entered and presented in the same way that is always has. Using Swing, it’s easy to create your own custom components, instead of just using the regular buttons and text fields. 
+
+•	None of this is important if you have bad performance. Bad performance will ruin any user experience, no matter how cool the effects are, and all your hard work will only have made your application worse.
+
+We're going to show you how to achieve all of this in just a moment, but first, let’s see what a typical Swing Rocks application might look like. It's an RSS reader called Feedjii.
+
+
+Slide 11 – Feedjii Demo (Pär & Martin)
+Pär
+This is the application we have been working on.
+
+The main feature is the list of feeds located in the center of the application. Every Feed Item contains a title, a description, the date when the feed was published and 3 small icons. By clicking the earth icon you will open a web browser that points to the URL of this specific feed. The heart icon will mark the item as a favorite making it easier to find. The mail icon lets you send an email to a friend containing the specific feed. Sometimes the feed item contains more text than is possible to show, in those cases you can see how many more lines of text that are available and if you click the item is expanded to show the entire text. Another click will make the item contract.
+The feed description is justified and that isn't easy to implement if you decide to do it yourself, luckily there are classes in Java that supports text alignment.
+If you look at the top left corner you will see a search field. Just enter some text and the feed list is filtered on the fly highlighting all occurrences of your search criteria. Once again Java have support for a lot of text operations like highlighting words
+On the left side we have three icons that expands if you click on them. The top most contains filters. A filter is a predefined set of keywords that is used to filter the feed list.
+When I expand the second icon we can see that it contains various functions like sorting alphabetically or by date. I’m usually only interested in the feeds received since the last time I used Feedjii and I can get that behavior by clicking on the “only new? icon.
+The last one contains settings. Here you can add new subscriptions, edit filters, set the proxy server, have a look at our ugly faces and some other useful things.
+Last but absolutely not least we have the time line. The time line gives us the possibility to filter the feed list based on a specific time range. Only the feed items published within the time range are displayed. The left knob is the start date and the right knob is the end date. It’s easy to adjust the time line so we only see the feeds received in the last 2 weeks.
+
+Martin
+So let's take a look att Feedjii from a design point of view. As you can see, it doesn't look like a native application at all, and this was never our intention. This is however a very important decision that you'll have to make about your application. Generally speaking, native-looking applications are better for less computer-savvy users, and for most administrative and business software. They just feel more serious and trustworthy. Custom applications like Feedjii might be more fun, and as a designer they give you a lot more creative freedom, but depending on how far out your design is, they might not be easier to use. One very good reason for creating a custom looking application is if you have a strong graphical profile for your company. By branding your application, you can extend that onto the users' desktop, and that's obviously a very good thing.
+
+Since Feedjii is kind of a gui experiment, it doesn't follow any design guidelines at all. It's a lot of fun to just go crazy like this, but for a commercial application, a bit more structure is probably a good thing. The look of the application is heavily based on gradients, as you can see for example in the window title up here. Gradients are a great way to make your components look more realistic, and as we'll se later on, they're really easy to use.
+ 
+
+
+As you can see in these menus, we use some transparency as well. Used right, I think transparency can look very modern and impressive, but it's very easy to over-do it. Personally I prefer things that are just slightly transparent, like our timeline here. You might not even realize it's transparent the first few times you use it.
+
+We have some animated components as well, like this accordion panel. It's a generic panel that you can add as many tabs as you like to, and it just works like a charm. Very intuitive and easy to use. Also, compared to traditional tabs, these ones can have very long titles without messing up the layout of the frame.
+
+There is one more animation I'd like to show. I'm sure all of you have used, or at least seen an iPhone. It's clearly got one of the best user interfaces out there, and there's one effect in particular that usually puts a smile on everybody's face the first time they use it. I'm talking about that smooth scrolling effect used for example in the contact list. Obviously we couldn't resist implementing it ourselves. In addition to just dragging the feed list up and down, you can actually fling it away, just like on the iPhone. Look at that! It might not be the most useful feature here, but it's very addictive! When I run Feedjii, I can't resist playing with the feed list for a while, I really like the feeling of this animation.
+
+Pär
+How hard is it to write a Feedjii like application?
+
+
+Once you know where to start, writing your own Swing Rock application isn't very hard. You don't have to be an expert, you don't have to work for Sun, you don't even have to be a geek as long as you are passionate.
+
+
+Slide 12 – Under the hood (Martin)
+So, let's take a look at how to implement some of these things. We don't have time to go through the code for all the components here, so we are going to focus on two things: how to build a feed component, and how to implement the kinetic scrolling effect you just saw.
+
+
+Slide 13 – Architecture 1 (Pär)
+We are going to start by looking at a feed item but to get a better understanding of the code, in the coming slides, let’s first take a look at the classes we use.
+
+
+Slide 14 – Architecture 2 (Pär)
+A FeedComponent is a visual representation of a feed item, it's what we will see on the screen. We want to make this into a real component like JLabel and JButton and we do that by extend JComponent.
+
+
+Slide 15 – Architecture 3 (Pär)
+JComponent is a Swing class that all visual Swing classes extend directly or indirectly. JLabel for example extends directly from JComponent just like we do. Now we can treat our FeedComponent like any other Swing component and for example add it to panels and let the layout manager handle the position and size.JComponent contains a lot of useful methods. We are going to go through five of them that are important to understand as we continue.
+paint() is responsible for drawing the entire component and it does so by delegating to paintComponent, paintBorder and paintChildren.
+Let’s have a look at how the paint method works.
+
+
+Slide 16 – Architecture 4 (Pär)
+The first thing paint does is invoke paintComponent that draws the component itself. Then it invokes paintBorder to paint the component border if one exists. The last thing paint does is to draw the childrens if any exists.
+We rarely override paint and never paintBorder or paintChildren. FeedComponent only overrides paintComponent.
+First thing to remember: when you are about to write your first own custom component inherit from JComponent and override paintComponent(). That's a good start.
+
+
+Slide 17 – Architecture 5 (Pär)
+So let’s have a look at the diagram again.
+You can call repaint()  when you want to tell Swing to repaint the component. We use repaint every time we change the graphics, for example in animations.
+The Graphics object that is an argument to the methods is used to do the actual painting. Graphics contains drawing operations like drawLine, drawRect and drawImage.
+It’s good to know that the Graphics object can be cast to a Graphics2D object as long as you’re working with Swing.
+Graphics2D is a newer and better version of Graphics and contains much more sophisticated drawing methods that are really useful when drawing your own components.
+Let’s take a look at our FeedComponent implementation to see how we use the Graphics2D object to draw our component.
+
+
+Slide 18 – FeedComponent
+OK, so let's have a look at the FeedComponent code
+
+
+Slide 19 – FeedComponent
+The FeedComponent is a typical example of a component that only presents information, just like Pär said, we start off by extending JComponent and overriding paintComponent. There is another path you can take here, and that's to create a component by combining two or more existing components, perhaps with some added logic. If that suits your needs, it will probably save you a lot of work. By painting your own components, you are however free to do whatever you want, and that's what we're going to show you today.
+
+All the code we see from now on will be the paintComponent implementation.
+
+
+Slide 20 – FeedComponent
+The first thing we do in our paintComponent method is to cast our Graphics object to a Graphics2D one, to get access to all the new fancy methods. Next, we want all our drawing operations to be antialiased, so that they're smooth and nice instead of jagged. The only thing we have to do to accomplish this is to set a rendering hint, a flag that just lets Java2D know we want to use antialiasing for all our drawing from now on. The nice thing with Java2D is that you get advanced stuff like this for free.
+
+
+Slide 21 – FeedComponent
+Now it's time to start drawing, and here's another example of how simple life can be with Java2D. We want our component to be a rounded rectangle filled with a gradient. Writing this from scratch could be quite complicated, but using Java2D, this is a simple two step operation. First, we tell Java2D that we’d like to use a gradient, by creating a GradientPaint. It takes the start and end points, and the start and end colors of the gradient as parameters, so it's very easy to understand. Everything we draw from now on, lines, shapes and even text, will be filled with this gradient. This is a very powerful function.
+
+
+Slide 22 – FeedComponent
+The second step is to draw the rectangle. We do this by calling the fillRoundRect method, and as we've already specified what paint to use, that's all we have to do!
+
+
+Slide 23 – FeedComponent
+Now, let's add some text to the component. Java2D has some pretty advanced functions for working with text, but in this example, we have simplified things a bit. We just use the drawString method to draw our item title to the component using the default font. Don’t forget to change the paint first, otherwise the text will be drawn with the same graidentPaint as the background, and then we won’t see it at all.
+
+
+Slide 24 – FeedComponent
+We then draw the item text the same way. Like I said, we’ve simplified things a bit here, there are font styles, linebreaks and such things to take care of, but I’m sure this’ll get you started. And that’s it, for a simple presenting component, it doesn’t have to be harder than that. Now, let's quickly move on to the kinetic scrolling effect.
+
+
+Slide 25 – What about animations (Pär)
+The Kinetic Scrolling component is obviously moving and that means we need to discuss animations. An animation usually requires a separate thread that updates the UI every x millisecond.
+That doesn’t sound very complicated right?
+But what happens when we add some actual requirements?
+Perhaps we don’t want constant speed in our animation, what if we want acceleration or deceleration?
+What if we want to reverse an animation, like we do when we contract a feed item?
+What if the person who was assigned to the task of writing the animation thread isn’t the threading guru he claimed to be? Can you spell maintenance hell.
+It's obvious a little bit more complicated than we though
+So what do we do? It’s really simple: let’s use a framework. Let’s use a great framework that takes care of all of our needs in just a couple of lines of code. Let’s use Timing Framework.
+
+
+Slide 26 – Timing Framework (Pär)
+Timing Framework was written by Chet Haase and you can find it on java.net
+This is an example that really shows how easy it is to use Timing Framework.
+Animator, that is a part of Timing Framework, is the class that handles all our headaches. When creating our animator we invoke a constructor that takes two arguments, the first being the duration of the animation in ms, so this animation will go on for two seconds. the second argument is the target to invoke everytime the ui is to be updated. The target must be of the type TimingTarget and that's why we implement the TimingTarget interface. Now animator will do callbacks to the timingEvent method. But when? That's the next thing we set. Resolution.
+Now the animator will call our method timingEvent every 10th millisecond. Next we set the acceleration and deceleration, so the animation will spend the first 30 percent accelerating and the last 30 percent decelerating.
+Last but not least we start the Animator and like we said now timingEvent will be invoked every 10th millisecond with a float value from 0 to 1 describing the progress of the animation and it’s up to us to update the state of the animation and call repaint.
+There are some more methods in TimingTarget that we didn’t show like start and stop that might be useful to you.
+So now we know how to create a FeedComponent and how to handle threading and that’s all we need to know to create the KineticScrolling component but let’s start with a visual explanation to make sure we really understand what's going on.
+
+
+Slide 27 – Visual explanation (Pär)
+Our work starts as soon as the user presses the mouse button and when thas happens we save the current time and the vertical position on screen.
+Then the user will drag the mouse over the screen and all we have to do is update the component position to match the mouse position.
+The user will finish the mouse gesture by releasing the mouse button and when that happens we save the end time and  the vertical position.
+Now we have the total time and the total distance the mouse moved and we can easily calculate the speed and all that’s left is to start an animator with the right properties set to simulate the speed and a deceleration that makes the component slow down in natural way.Finally we ready to look at the code.
+
+
+Slide 28 – KineticScrolling 1 (Pär)
+The KineticScrolling component inherits from JComponent implements MouseListener and MouseMotionListener so we can be notified of mouse events and TimingTarget for animation callbacks.
+We have a reference to the component that we want to scroll an animator for animations. Attributes to calculate the speed and some other that will be easier to understand once we seethem in action.
+
+
+Slide 29 – KineticScrolling 2 (Pär)
+When constructing the component we set layout to null, now some of you might think that it's bad to use a null layout but we consider ourself as a light version of a layout manager and we use null layout to gain full control of the position of the component.
+We add mouse listener and mouse motion listener to receive mouse events.
+We save the component to slide and also add it to ourselves.
+
+
+Slide 30 – KineticScrolling 3 (Pär)
+Like we said, when the user first presses the mouse button we save the current time and the position on screen.
+previousMouseEvent is saved for later use.
+
+
+Slide 31 – KineticScrolling 4 (Pär)
+Every time the mouse is moved our mouseDragged method is invoked and we move the component to match the mouse position.
+The diff variable contains the vertical difference between the previous and current mouse event.
+newYPosition contains  the position where the component should be after the update.
+Then we set new vertical location, save the mouse event and repaint the component.
+
+
+Slide 32 – KineticScrolling 5 (Pär)
+This is the last mouse related method, invoked when the user releases the mouse button.
+We have yDiff, the total vertical difference, and total elapsedTime and this gives us the speed that the mouse had when it was released. The speed is measured in pixels per second.
+By multiplying speed with animation duration we get the distance to scroll.
+Saving the start position is all that’s left before creating the animator.
+
+
+Slide 33 – KineticScrolling 6 (Pär)
+Every time timingEvent is invoked we have to calculate the new vertical position based on the animation progress and the total distance to scroll.
+Remember that the progress is a value between 0 and 1 and this is useful when we calculate the new position.
+If we multiple the total distance to scroll with the progress we get the new position where the component should be located relative to the position where we startet the animation. We just have to add the start position to get the real position on screen.
+
+
+Slide 34 – KineticScrolling Demo (Martin)
+(Pär clearly impressed by his kinetic scrolling)
+(Martin) That's a nice effect, but I told you, we must have good performance! 
+
+
+Slide 35 – Five steps to success (Martin)
+When we started working with Feedjii, we had even worse performance than this. I remember how excited we were when we went from 7 to 17 FPS, but that clearly wasn't enough. Let's have a look at how we achevied the over 200 FPS we have today.
+
+
+Slide 36 – HW acceleration (Martin)
+Hardware acceleration has been available in Java for a pretty long time now, but it wasn't until the wonderful Java 6 update 10 that it was turned on by default. In older versions of Java, it might be interesting to know how to turn it on, and in newer versions, it might be interesting to know how to turn it off.
+ 
+This is how a Java program is normally started from the command line. By setting these two flags, you can control if hardware acceleration should be enabled, and which type should be used. When we started working on this presentation, we had two pretty old laptops, and we thought it would be a good idea to get a brand new one, with a bit more impressive graphics hardware. So, we went to our boss, begged on our knees, and got this pretty expensive laptop. Much to our surprise, we hardly got any performance improvement at all. It turns out there's no support for hardware acceleration on the integrated intel graphics chipset in this computer, so we have to use software rendering. But this wasn't the biggest problem with our new, expensive computer ...
+
+
+Slide 37 – Timing issues 1 (Pär)
+The animation is not as smooth as we hoped for and the behavior is really strange.
+All animations takes two to three times as long as they should and are accelerating and decelerating randomly and uncontrollarble. That is not what you expect from a new computer.
+This was something that really bugged us for a long time and we tried everything but it just didn’t work.
+After a lot of trial and error we found the problem and it turns out that the native timer that timing framework relies on is broken on this particular computer. We saw some other strange rendering artefacts not related to Java and that's what made us suspect the internal timer.
+The solution is to implement your own timer and tell the timing framework to use it instead of the default one, which is really easy.
+Just extend TimingSource from TimingFramework and implement the methods start, stop, setResolution and setStartDelay(). 
+Start is implemented on the next slide and to be able to fit everything in one slide we skipped setStartDelay.
+Stop sets the flag stop to true and this will end the timer.
+Lets have a look at the start method.
+
+
+Slide 38 – Timing issues 2 (Pär)
+All start does is create a new Thread with a while-statement that executes as long as the stop variable is false.
+Every loop sleeps for resolution milliseconds and then calls timingEvent() which will invoke all listeners timingEvent.
+All that’s left to do is invoking Animator.setTimer(); with your new timer as argument.
+Note that this is not something that you should have to do but it can still be useful to know.
+
+Slide 39 – Cache is king (Martin)
+This is the best performance trick we have to offer, and that's to cache your graphics. Most components look the same every time they are drawn, and some drawing methods, like gradients for example, are pretty slow. By drawing your component once to an off screen image, and then drawing this image to the screen, there's a lot of performance to be gained. Let's have a look at how it works.
+
+Every time we enter this paintComponent method, we check if we already have a cached image. If we don't, for example the first time the method is called, we create a new BufferedImage the size of our component. Then we extract the graphics object from the image, and use it to paint our component.
+ When this is done, we draw our buffered image to the screen. The next time the paintComponent method is called, we already have a cached image, and all we do is draw this to the screen.
+If your component has a few different states with different appearances, for example a different look when the component is focused, you can store one bufferedimage for each state, and just draw the right one every time paintComponent is called. Or you could have a bufferedimage for the most common state, and paint the component on the fly the rest of the time.
+There's one thing that's very important to remember, and that's to remove your cached image if the component is resized. This is easily acheived by adding a componentlistener to your component, and listening for componentresized events.
+
+
+
+Slide 40 – Compatible images (Pär)
+Assume we are going to create a fade demo, do you remember the fade demo where one image is fully visible and then another one slowly fades in and becomes visible.
+Assume the images we are to fade have the dimension 1000x1000 pixels then the total number of pixels are 1 million per image resulting in 2 million pixels being painted to the screen every animation cycle. We save the images in buffered image objects.
+If we look at the BufferedImage API we can see that the constructor takes width, height and an image type. The image type specifies in what format the pixels will be stored and there are many different types.
+What happens if the monitor that displays your application is optimized for a format other than the one you’re using for your buffered images? Then your graphics card will have to convert all the pixels in the buffered image to the monitors format every time the image is displayed on the screen.
+Assume you’re running on 30 fps then the total number of pixel conversions will be: 2 millions * 30 which is 60 million conversions every second.  That is a lot of redundant work and avoiding it will of course increase performance.
+Retriving a BufferedImage that is compatible with your monitor is easy. Call getGraphicsConfiguration to get an object that knows what your monitors preferred fomat is then call getCompatibleImage  to get a bufferedimage with the right format. It's as easy as that.
+Now you can use the buffered image just like before.
+
+
+Slide 41 – Avoid transparency (Martin)
+When creating a compatible image, you can specify whether it should support transparency or not. If you are going to draw something solid that fills the entire image, there's no need for transparency. We discovered pretty recently that we'd been using images with support for transparency by misstake on several places were it wasn't needed, and removing this gave us a small but notable increase in performance.
+
+
+Slide 42 – Performance summary (Pär)
+The first time we tried the Kinetic Scrolling component 7 frames per second was all we could squeeze out of it. Then we learned about hardware acceleration, cached compatible images and other neat tricks to speed up the animations and eventually we ended up with somewhere around 200 frames per second. That is pretty good and we are still running without hardware acceleration.
+This diagram shows the number of fps that we achieved for various configurations.
+
+
+Slide 42.5 - Summary (Pär)
+Today we have seen some bad looking applications but we have also showed you what we think a good looking application should look like. We hope that you know by know  the real power of Swing.
+We have seen feedjii in action and how to implement a feed item and the Kinetic Scrolling component. We hope that you have found inspiration and that you will go home to your hotels and start writing your own Swing Rocks applications. And don't forget to pick up your own copy of Filthy Rich Client on your way out. It's available in the book store.
+
+
+Slide 42.7 - Whats next
+So, what's next for us? We'll continue to work on Feedjii for a while, it's not entirely finished, but we're getting there. You can already run a beta version on our website, swing-rocks.com, and soon we'll also release the source code.
+But that's not all. We've also started working on a pretty radical JavaFX application, and we really hope we can come back next year and show you that JavaFX rocks as well. Of course this doesn't mean that we will give up on Swing, we'll absolutely continue to write cool components and effects.
+
+
+Slide 43 – Books (Martin)
+If you want to know more about these things, there are two books we'd like to recommend. First, there's of course Filthy Rich Clients, written by Chet Haas and Romain Guy. This is really our bible, and it contains almost everything we've talked about here today. The second book is Java2D API Grahpics, written by Vincent J Hardy. This is aslo a very good book, that really goes into all the details of the Java2D API.
+
