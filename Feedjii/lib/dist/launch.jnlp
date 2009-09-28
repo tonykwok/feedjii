@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jnlp codebase="http://feedjii.com/beta/" href="launch.jnlp" spec="1.0+">
+    <information>
+        <title>Feedjii</title>
+        <vendor>Feedjii</vendor>
+        <homepage href="www.feedjii.com"/>
+        <description>Feedjii</description>
+        <description kind="short">Feedjii</description>
+
+
+    <offline-allowed/>
+</information>
+<security>
+<all-permissions/>
+</security>
+    <resources>
+<j2se java-vm-args="-Xms128m -Xmx512m" version="1.6+"/>
+<jar eager="true" href="Feedjii.jar" main="true"/>
+
+
+    <jar href="lib/jdom.jar"/>
+<jar href="lib/rome-0.9.jar"/>
+<jar href="lib/rome-fetcher-0.9.jar"/>
+<jar href="lib/TimingFramework-1.0.jar"/>
+<jar href="lib/AnimatedTransitions-0.11.jar"/>
+<jar href="lib/miglayout-3.6.2.jar"/>
+</resources>
+    <application-desc main-class="nu.epsilon.rss.ui.XFrame">
+
+    </application-desc>
+</jnlp>
